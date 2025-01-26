@@ -9,7 +9,7 @@ class JwtService {
         }
     }
 
-    generateToken(payload, expiresIn = '7d') {
+    generateToken(payload, expiresIn = '168h') {
     try {
         return jwt.sign(payload, this.secretKey, { expiresIn });
     } catch (error) {
