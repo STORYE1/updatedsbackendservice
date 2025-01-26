@@ -9,14 +9,15 @@ class JwtService {
         }
     }
 
-    generateToken(payload, expiresIn = '1h') {
-        try {
-            return jwt.sign(payload, this.secretKey, { expiresIn });
-        } catch (error) {
-            console.error("Error generating token:", error.message);
-            throw new Error("Failed to generate token");
-        }
+    generateToken(payload, expiresIn = '7d') {
+    try {
+        return jwt.sign(payload, this.secretKey, { expiresIn });
+    } catch (error) {
+        console.error("Error generating token:", error.message);
+        throw new Error("Failed to generate token");
     }
+}
+
 
     verifyToken(token) {
         try {
